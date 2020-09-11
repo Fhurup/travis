@@ -1,5 +1,6 @@
 package facades;
 
+import DTO.MovieDTO;
 import entities.Movie;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -97,9 +98,9 @@ public class MovieFacade {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            em.persist(new Movie("Topgun", 1986, new String[]{"Tom Cruise", "Val Kilmer", "Kelly McGills"}));
-            em.persist(new Movie("Kill Bill", 2003, new String[]{"Uma Thurman", "Daryl Hannah"}));
-            em.persist(new Movie("Point Break", 1991, new String[]{"Patrick Swayze", "Keanu Reeves"}));
+            em.persist(new Movie("Lord of the Rings: The Fellowship of the Ring", 2001, new String[]{"Elijah Wood", "Orlando Bloom", "Ian McKellen"}));
+            em.persist(new Movie("Lord of the Rings: The Two Towers", 2002, new String[]{"Viggo Mortensen", "Sean Astin"}));
+            em.persist(new Movie("Lord of the Rings: The Return of the King", 2003, new String[]{"Billy Boyd", "Liv Tyler"}));
             em.getTransaction().commit();
         } finally {
             em.close();

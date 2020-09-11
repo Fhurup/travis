@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 //Uncomment the line below, to temporarily disable this test
-@Disabled
+//@Disabled
 public class MovieFacadeTest {
 
     private static EntityManagerFactory emf;
@@ -40,9 +40,9 @@ public class MovieFacadeTest {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-//            em.createNamedQuery("RenameMe.deleteAllRows").executeUpdate();
-//            em.persist(new Movie("Some txt", "More text"));
-//            em.persist(new Movie("aaa", "bbb"));
+            em.createNamedQuery("Movie.deleteAllRows").executeUpdate();
+            em.persist(new Movie("Lord of the Rings: The Fellowship of the Ring", 2001, new String[]{"Elijah Wood", "Orlando Bloom", "Ian McKellen"}));
+            em.persist(new Movie("Lord of the Rings: The Two Towers", 2002, new String[]{"Viggo Mortensen", "Sean Astin"}));
 
             em.getTransaction().commit();
         } finally {
@@ -57,8 +57,18 @@ public class MovieFacadeTest {
 
     // TODO: Delete or change this method 
     @Test
-    public void testAFacadeMethod() {
+    public void testGetCount() {
         assertEquals(2, facade.getMovieCount(), "Expects two rows in the database");
+    }
+    
+    @Test
+    public void testGetMovieByTitle(){
+        assertEquals("Lord of the Rings: The Fellowship of the Ring", facade.getMovieByTitle("Lord of the Rings: The Fellowship of the Ring").get(0).getTitle());
+    }
+    
+    @Test
+    public void testGetMovieByID(){
+        assertEquals("Lord of the Rings: The Two Towers", facade.getMovieById(1).getTitle());
     }
 
 }
