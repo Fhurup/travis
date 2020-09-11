@@ -114,6 +114,15 @@ public class MovieResourceTest {
 //                .body("id", equalTo(r1.getId().longValue()));
 //    }
     
+     public void testSpecificTitle() throws Exception {
+        given()
+        .contentType("application/json")
+        .get("/movie/title/John").then()
+                .assertThat()
+                .statusCode(HttpStatus.OK_200.getStatusCode())
+                .body("title", equalTo(r1.getTitle()));
+    }
+     
     @Test
     public void testGetAllMovies() throws Exception {
         given()
