@@ -1,0 +1,72 @@
+
+
+
+
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+
+        <div id="1"></div>
+
+        <input type="text" id="name" name="name" value="John">  <button id = "btn"> Hvis du vil tilføje så tryk for satan!</button><br>
+        
+        <button id = "btn2"> Hvis du vil fjerne ham den trælse som er først så tryk her</button><br>
+       
+        <button id = "btn3"> Ellers kan du altid fjerne hende den dumme sidste, her</button><br>
+       
+        
+
+
+        <script>
+            var names = ["John", "Svend", "Ib", "Lisbeth", "Maria", "Camilla"];
+            var html = "<ul>" + names.map(n => "<li>" + n + "</li>").join("") + "</ul>"
+            document.getElementById(1).innerHTML = html
+            //console.log(document.getElementById("name").value)
+            
+            function addname() {
+                names.push(document.getElementById("name").value)
+                document.getElementById(1).innerHTML = "<ul>" + names.map(n => "<li>" + n + "</li>").join("") + "</ul>"
+            }
+            
+            function removeFirst() {
+                names.shift(0)
+                document.getElementById(1).innerHTML = "<ul>" + names.map(n => "<li>" + n + "</li>").join("") + "</ul>"
+            }
+            
+            function removeLast() {
+                names.pop()
+                document.getElementById(1).innerHTML = "<ul>" + names.map(n => "<li>" + n + "</li>").join("") + "</ul>"
+            }
+
+            var button = document.getElementById("btn");
+            var button2 = document.getElementById("btn2");
+            var button3 = document.getElementById("btn3");
+            
+             button.addEventListener('click', (event) => {
+                event.preventDefault();
+                addname();
+            }
+            );
+            
+            button2.addEventListener('click', (event) => {
+                event.preventDefault();
+                removeFirst();
+            }
+            );
+    
+            button3.addEventListener('click', (event) => {
+                event.preventDefault();
+                removeLast();
+            }
+            );
+            
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="1"></div>
+        <input type="text" id="price" name="price" value="0"> <button id="btn">costs less than</button>
+        
+        <script>
+
+            var html;
+            var cars = [
+                {id: 1, year: 1997, make: 'Ford', model: 'E350', price: 3000},
+                {id: 2, year: 1999, make: 'Chevy', model: 'Venture', price: 4900},
+                {id: 3, year: 2000, make: 'Chevy', model: 'Venture', price: 5000},
+                {id: 4, year: 1996, make: 'Jeep', model: 'Grand Cherokee', price: 4799},
+                {id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799}
+            ]
+                
+               function table(cars){
+               html = "<table border='1'><tr><th>id</th><th>year</th><th>make</th><th>model</th><th>price</th></tr>" + 
+                       cars.map(n=> "<tr><td>" + n.id + "</td>" + 
+                                    "<td>" + n.year + "</td>" +
+                                    "<td>" + n.make + "</td>" +
+                                    "<td>" + n.model + "</td>" +
+                                    "<td>" + n.price + "</td></tr>"
+                                    ) + "</table>"
+                            return html
+                        }
+               document.getElementById(1).innerHTML = table(cars);
+               
+               function filterCars(){
+                   var cheapCars = cars.filter(n=> n.price < document.getElementById("price").value);
+                   document.getElementById(1).innerHTML = table(cheapCars);
+                   
+               }
+               
+               button = document.getElementById("btn");
+               
+               button.addEventListener('click', (event)=>{
+                   event.preventDefault();
+                   filterCars();
+               })
+                    
+            
+
+
+
+        </script>
+    </body>
+</html>
+

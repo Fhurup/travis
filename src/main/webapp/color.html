@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+
+    <body>
+        <div id = "1"> Første farve </div>
+        <div id = "2"> Anden farve </div>
+        <div id = "3"> Tredje farve </div>
+
+        <button id ="btn">Tryk for at skifte farve</button>
+
+        <script>
+            var ids = document.getElementsByTagName("div");
+            for (var i = 0; i < ids.length; i++) {
+                ids[i].style.backgroundColor = "red";
+            }
+            function changeColor() {
+                document.getElementById(1).style.backgroundColor = "red";
+                document.getElementById(2).style.backgroundColor = "blue";
+                document.getElementById(3).style.backgroundColor = "green";
+            };
+            
+            let button = document.getElementById("btn");
+
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                changeColor();
+            }
+
+            );
+
+        </script>
+    </body>
+</html>

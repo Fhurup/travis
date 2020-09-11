@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <style>
+        .myDiv {width: 25px; height: 25px;background-color:yellow; margin:1px;}
+
+
+    </style>
+
+    <body>
+
+        <div>TODO write content</div>
+        <div id ="1" class = "myDiv"> HALLO </div>
+        <div id ="2" class = "myDiv"> ER DER NOGEN? </div>
+        <div id="outer">
+            <div id ="3" class = "myDiv"> 1 </div>
+            <div id ="4" class = "myDiv"> 2 </div>
+            <div id ="5" class = "myDiv"> 3 </div>
+            <div id ="6" class = "myDiv"> 4 </div>
+            <div id ="7" class = "myDiv"> 5 </div>
+            <div id ="8" class = "myDiv"> 6 </div>
+            <div id ="9" class = "myDiv"> 7 </div>
+            <div id ="10" class = "myDiv"> 8 </div>
+            <div id ="11" class = "myDiv"> 9 </div>
+            <div id ="12" class = "myDiv"> 10 </div>
+        </div>
+        <div id ="13">hej</div>
+
+        <script>
+
+
+            function Hi() {
+                document.getElementById(13).innerHTML = "Hi from idOfTheDiv"
+
+            }
+            function Hi2(e) {
+                var target = e.target
+                //console.log(target.innerHTML)
+                document.getElementById(13).innerHTML = target.innerHTML
+            }
+
+            document.getElementById("outer").addEventListener('click', Hi2)
+            document.getElementById(2).addEventListener('click', Hi);
+            document.getElementById(1).addEventListener('click', Hi);
+
+
+        </script>
+
+    </body>
+</html>
